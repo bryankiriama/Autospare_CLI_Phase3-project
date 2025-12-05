@@ -57,26 +57,37 @@ python lib/cli.py
 
 ## BDD (Behavior Driven Development)
 
--1. Supplier Management
+Scenario: Add a new supplier
+Given the user is in the Supplier Management menu
+When the user enters a supplier name, contact, and address
+Then a new supplier record should be created in the database
+And the system should display "Supplier added successfully"
 
-As an inventory manager, I want to add new suppliers so that I can track where parts come from.
+Scenario: View all suppliers
+Given suppliers exist in the database
+When the user selects "View Suppliers"
+Then the system should display a list of all suppliers with their IDs, names, and contacts
 
-As an inventory manager, I want to view all suppliers so that I know who provides what.
+Scenario: Delete a supplier
+Given a supplier record exists
+When the user enters the supplier ID to delete
+Then the system should remove the supplier from the database
+And the system should display "Supplier deleted successfully"
 
-As an inventory manager, I want to delete a supplier so that I can remove outdated records.
+Feature: Parts Management
+Scenario: Add a new part
+Given the user is in the Parts Management menu
+When the user enters the part name, category, price, supplier ID, stock quantity, and minimum stock
+Then a new part record should be saved in the database
+And the system should show "Part added successfully"
 
--2. Parts Management
+Scenario: View all parts
+Given parts exist in the inventory
+When the user selects "View Parts"
+Then the system should display all parts with their names, categories, prices, stock quantities, and supplier IDs
 
-As a store operator, I want to add new parts so that I can update inventory.
-
-As a store operator, I want to view parts and their categories so that I can quickly check availability.
-
-As a store operator, I want to delete parts so that I can clean up inactive items.
-
--3. Orders Management
-
-As a sales clerk, I want to create orders so that I can record customer purchases.
-
-As a sales clerk, I want to see total prices automatically calculated so that errors are avoided.
-
-As a sales clerk, I want to view all orders so that I can track sales history.
+Scenario: Delete a part
+Given a part record exists
+When the user enters the part ID to delete
+Then the part should be removed from the database
+And the system should display "Part deleted successfully"
