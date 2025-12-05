@@ -91,3 +91,51 @@ Given a part record exists
 When the user enters the part ID to delete
 Then the part should be removed from the database
 And the system should display "Part deleted successfully"
+
+## Technologies Used
+
+1. Python 3
+
+Core programming language used to implement the CLI.
+
+Supports OOP, modules, and scripting for backend logic.
+
+2. SQLAlchemy ORM
+
+Used for database modeling and CRUD operations.
+
+Handles relationships between suppliers, parts, customers, and orders.
+
+Eliminates the need for raw SQL in most cases.
+
+3. SQLite Database
+
+Lightweight, file-based relational database (ev_inventory.db).
+
+Ideal for CLI and local development environments.
+
+4. Pipenv
+
+Manages virtual environments and dependencies.
+
+Ensures consistent development across machines.
+
+5. Alembic (Optional if included)
+
+Handles database migrations when schema updates are needed.
+
+6. Python Standard Libraries
+
+Used for logic, debugging, and CLI structure:
+
+os – file and environment management
+
+datetime – handling timestamps for orders
+
+sys – managing CLI interactions
+
+7. CLI / Terminal
+
+The application runs entirely through the terminal.
+
+Users perform CRUD operations directly from command inputs.
